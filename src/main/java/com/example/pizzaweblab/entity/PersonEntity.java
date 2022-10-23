@@ -8,6 +8,10 @@ public class PersonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @OneToOne(optional = false)
+    @JoinColumn(name="cart", unique = true, nullable = false, updatable = false)
+    private CartEntity iduser;
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "role", nullable = false)
     private RoleEntity role;
@@ -68,4 +72,11 @@ public class PersonEntity {
         this.number = number;
     }
 
+    public CartEntity getIduser() {
+        return iduser;
+    }
+
+    public void setIduser(CartEntity iduser) {
+        this.iduser = iduser;
+    }
 }

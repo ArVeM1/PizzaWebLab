@@ -19,6 +19,9 @@ public class ProductsEntity {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "cart", nullable = false)
+    private CartEntity idproduct;
 
     public CategoryEntity getCategory() {
         return category;
