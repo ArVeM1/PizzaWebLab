@@ -1,8 +1,6 @@
 package com.example.pizzaweblab.entity;
 
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name="category")
