@@ -2,6 +2,7 @@ package com.example.pizzaweblab.entity;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="products")
@@ -16,6 +17,17 @@ public class ProductsEntity {
     private String image;
     private int price;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryEntity category;
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
 
     public Integer getId() {
         return id;
