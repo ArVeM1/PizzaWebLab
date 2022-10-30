@@ -1,4 +1,4 @@
 package repository;
 
-public interface RoleRepository {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 }
